@@ -1,5 +1,3 @@
-# machine-learning-knowledge-level-classification-and-summarization-educational-video
-Machine Learning framework for educational video analysis using Whisper, BERT, and LED to classify knowledge levels and generate summaries.
 # Machine Learning Based Knowledge Level Classification and Summarization of Educational Videos
 
 > **An AI-powered framework for automatically classifying educational video content into knowledge levels and generating concise summaries using Whisper, BERT, and LED.**
