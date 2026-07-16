@@ -1,0 +1,47 @@
+cff-version: 1.2.0
+title: "Machine Learning Based Knowledge Level Classification and Summarization of Educational Videos"
+message: "If you use or refer to this work in your research, please cite it using the metadata below."
+type: software
+
+authors:
+  - family-names: "Naik"
+    given-names: "Swaroop Prakash"
+
+  - family-names: "Mane"
+    given-names: "Shashank P"
+
+  - family-names: "Korigoudar"
+    given-names: "Nandana S"
+
+  - family-names: "Mallibhat"
+    given-names: "Kaushik"
+
+affiliation: "KLE Technological University, Hubballi"
+
+abstract: >
+  An AI-powered framework for automated knowledge-level classification
+  and summarization of educational videos using OpenAI Whisper,
+  BERT, and Longformer Encoder Decoder (LED). The framework
+  generates timestamped transcripts, classifies educational content
+  into cognitive knowledge levels, and produces concise summaries
+  to enhance learning and educational analytics.
+
+keywords:
+  - Machine Learning
+  - Artificial Intelligence
+  - Educational Videos
+  - Natural Language Processing
+  - Whisper
+  - BERT
+  - LED
+  - Knowledge Classification
+  - Summarization
+  - Deep Learning
+
+repository-code: "https://github.com/Swaroop-naik-0821/machine-learning-knowledge-level-classification-and-summarization-educational-video"
+
+license: "All Rights Reserved"
+
+version: "1.0"
+
+date-released: "2026-07-16"
