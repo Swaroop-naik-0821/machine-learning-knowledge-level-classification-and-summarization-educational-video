@@ -73,10 +73,9 @@ The system generates:
 
 # System Architecture
 
-> *(Insert architecture diagram here)*
-
+![Pipeline](images/Pipeline.png)
 ```
-images/architecture.png
+System Architecture for Knowledge Classification of Video
 ```
 
 ---
@@ -197,8 +196,8 @@ Example:
 ---
 
 # Research Paper
-
-The complete research paper is available in the **paper/** directory.
+[
+The complete research paper is available in **https://ieeexplore.ieee.org/document/11528104**.](https://ieeexplore.ieee.org/document/11528104)
 
 ---
 
