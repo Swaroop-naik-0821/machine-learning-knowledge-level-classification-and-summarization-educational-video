@@ -106,6 +106,14 @@ LED Summarizer
         ▼
 Summary + Timestamped Knowledge Levels
 ```
+# Development Environment
+
+The project was developed and evaluated using **Google Colab**, leveraging GPU acceleration for model training and inference.
+
+**Platform:** Google Colab  
+**Language:** Python 3.x  
+**Framework:** PyTorch  
+**Hardware:** NVIDIA Tesla T4 GPU (when available)
 
 ---
 
@@ -120,7 +128,7 @@ Summary + Timestamped Knowledge Levels
 | Knowledge Classification | Fine-tuned BERT |
 | Summarization | LED (Longformer Encoder Decoder) |
 | Development | Google Colab |
-
+| Version Control | Git & GitHub |
 ---
 
 # Project Structure
