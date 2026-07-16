@@ -147,3 +147,163 @@ def build_dataloader(df, tokenizer):
     )
 
     return loader
+
+# ==========================================================
+# Build BERT Model
+# ==========================================================
+
+def build_model():
+
+    model = BertForSequenceClassification.from_pretrained(
+        "bert-base-uncased",
+        num_labels=4
+    )
+
+    return model
+
+
+# ==========================================================
+# Device Selection
+# ==========================================================
+
+def get_device():
+
+    device = torch.device(
+        "cuda" if torch.cuda.is_available() else "cpu"
+    )
+
+    print(f"\nUsing device: {device}")
+
+    return device
+
+
+# ==========================================================
+# Optimizer
+# ==========================================================
+
+def build_optimizer(model):
+
+    optimizer = AdamW(
+        model.parameters(),
+        lr=LEARNING_RATE
+    )
+
+    return optimizer
+
+
+# ==========================================================
+# Training Loop
+# ==========================================================
+
+def train_model(model, dataloader, optimizer, device):
+
+    model.train()
+
+    total_loss = 0
+
+    for epoch in range(EPOCHS):
+
+        print(f"\nEpoch {epoch+1}/{EPOCHS}")
+
+        epoch_loss = 0
+
+        for batch in dataloader:
+
+            optimizer.zero_grad()
+
+            input_ids = batch["input_ids"].to(device)
+            attention_mask = batch["attention_mask"].to(device)
+            labels = batch["labels"].to(device)
+
+            outputs = model(
+                input_ids=input_ids,
+                attention_mask=attention_mask,
+                labels=labels
+            )
+
+            loss = outputs.loss
+
+            loss.backward()
+
+            optimizer.step()
+
+            epoch_loss += loss.item()
+
+        avg_loss = epoch_loss / len(dataloader)
+
+        total_loss += avg_loss
+
+        print(f"Training Loss : {avg_loss:.4f}")
+
+    print("\nTraining Completed.")
+
+    return model
+
+
+# ==========================================================
+# Save Model
+# ==========================================================
+
+def save_model(model, tokenizer):
+
+    print("\nSaving trained model...")
+
+    model.save_pretrained(MODEL_DIRECTORY)
+    tokenizer.save_pretrained(MODEL_DIRECTORY)
+
+    print(f"Model saved successfully at:\n{MODEL_DIRECTORY}")
+
+
+# ==========================================================
+# Complete Training Pipeline
+# ==========================================================
+
+def run_training():
+
+    # Load dataset
+    df = load_dataset()
+
+    # Tokenizer
+    tokenizer = build_tokenizer()
+
+    # DataLoader
+    dataloader = build_dataloader(df, tokenizer)
+
+    # Device
+    device = get_device()
+
+    # Model
+    model = build_model()
+
+    model.to(device)
+
+    # Optimizer
+    optimizer = build_optimizer(model)
+
+    # Train
+    model = train_model(
+        model,
+        dataloader,
+        optimizer,
+        device
+    )
+
+    # Save
+    save_model(
+        model,
+        tokenizer
+    )
+
+    print("\nBERT Training Completed Successfully.")
+
+
+# ==========================================================
+# Main
+# ==========================================================
+
+if __name__ == "__main__":
+
+    run_training()
+
+
+
